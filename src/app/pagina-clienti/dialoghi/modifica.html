@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Modifica Cliente</h1>
+<div mat-dialog-content>
+
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Cognome</mat-label>
+        <input matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Telefono</mat-label>
+        <input matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>e-Mail</mat-label>
+        <input matInput type="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Data Di Nascita</mat-label>
+        <input matInput type="date">
+    </mat-form-field>
+    
+</div>
+<div mat-dialog-actions>  
+    <button mat-stroked-button (click)="onNoClick()">Annulla</button>
+    <button mat-stroked-button cdkFocusInitial (click)="onNoClick();">Modifica</button>
+</div>

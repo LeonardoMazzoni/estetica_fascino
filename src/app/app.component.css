@@ -5,8 +5,6 @@ mat-sidenav-content {
     flex-direction: column;
 }
 
-
-
 mat-sidenav-container {
     height: 100%;
     width: 100%;

@@ -23,7 +23,23 @@ import { PaginaMagazzinoComponent } from './pagina-magazzino/pagina-magazzino.co
 import { PaginaFornitoriComponent } from './pagina-fornitori/pagina-fornitori.component';
 import { PaginaPrenotazioniComponent } from './pagina-prenotazioni/pagina-prenotazioni.component';
 import { PaginaTrattamentiComponent } from './pagina-trattamenti/pagina-trattamenti.component';
-import { DialogoInserimentoClienti } from "./pagina-clienti/pagina-clienti.component";
+
+import { DialogoInserimentoClienti } from "./pagina-clienti/dialoghi-clienti";
+import { DialogoEliminaClienti } from "./pagina-clienti/dialoghi-clienti";
+import { DialogoModificaClienti } from "./pagina-clienti/dialoghi-clienti";
+
+import { DialogoInserimentoProdotto } from "./pagina-magazzino/dialoghi-magazzino";
+import { DialogoEliminaProdotto } from "./pagina-magazzino/dialoghi-magazzino";
+import { DialogoModificaProdotto } from "./pagina-magazzino/dialoghi-magazzino";
+
+import { DialogoInserimentoFornitori } from "./pagina-fornitori/dialoghi-fornitori";
+import { DialogoEliminaFornitori } from "./pagina-fornitori/dialoghi-fornitori";
+import { DialogoModificaFornitori } from "./pagina-fornitori/dialoghi-fornitori";
+
+
+import { DialogoInserimentoTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
+import { DialogoEliminaTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
+import { DialogoModificaTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
 
 
 @NgModule({
@@ -34,7 +50,19 @@ import { DialogoInserimentoClienti } from "./pagina-clienti/pagina-clienti.compo
     PaginaFornitoriComponent,
     PaginaPrenotazioniComponent,
     PaginaTrattamentiComponent,
-    DialogoInserimentoClienti
+    DialogoInserimentoClienti,
+    DialogoEliminaClienti,
+    DialogoModificaClienti,
+    DialogoInserimentoProdotto,
+    DialogoEliminaProdotto,
+    DialogoModificaProdotto,
+    DialogoInserimentoFornitori,
+    DialogoEliminaFornitori,
+    DialogoModificaFornitori,
+    DialogoInserimentoTrattamenti,
+    DialogoEliminaTrattamenti,
+    DialogoModificaTrattamenti
+    
   ],
   imports: [
     BrowserModule,
