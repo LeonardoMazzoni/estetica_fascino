@@ -13,33 +13,36 @@ import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PaginaClientiComponent } from './pagina-clienti/pagina-clienti.component';
-import { PaginaMagazzinoComponent } from './pagina-magazzino/pagina-magazzino.component';
-import { PaginaFornitoriComponent } from './pagina-fornitori/pagina-fornitori.component';
-import { PaginaPrenotazioniComponent } from './pagina-prenotazioni/pagina-prenotazioni.component';
-import { PaginaTrattamentiComponent } from './pagina-trattamenti/pagina-trattamenti.component';
+import { PaginaClientiComponent } from './admin/pagina-clienti/pagina-clienti.component';
+import { PaginaMagazzinoComponent } from './admin/pagina-magazzino/pagina-magazzino.component';
+import { PaginaFornitoriComponent } from './admin/pagina-fornitori/pagina-fornitori.component';
+import { PaginaPrenotazioniComponent } from './admin/pagina-prenotazioni/pagina-prenotazioni.component';
+import { PaginaTrattamentiComponent } from './admin/pagina-trattamenti/pagina-trattamenti.component';
 
-import { DialogoInserimentoClienti } from "./pagina-clienti/dialoghi-clienti";
-import { DialogoEliminaClienti } from "./pagina-clienti/dialoghi-clienti";
-import { DialogoModificaClienti } from "./pagina-clienti/dialoghi-clienti";
+import { DialogoInserimentoClienti } from "./admin/pagina-clienti/dialoghi-clienti";
+import { DialogoEliminaClienti } from "./admin/pagina-clienti/dialoghi-clienti";
+import { DialogoModificaClienti } from "./admin/pagina-clienti/dialoghi-clienti";
 
-import { DialogoInserimentoProdotto } from "./pagina-magazzino/dialoghi-magazzino";
-import { DialogoEliminaProdotto } from "./pagina-magazzino/dialoghi-magazzino";
-import { DialogoModificaProdotto } from "./pagina-magazzino/dialoghi-magazzino";
+import { DialogoInserimentoProdotto } from "./admin/pagina-magazzino/dialoghi-magazzino";
+import { DialogoEliminaProdotto } from "./admin/pagina-magazzino/dialoghi-magazzino";
+import { DialogoModificaProdotto } from "./admin/pagina-magazzino/dialoghi-magazzino";
 
-import { DialogoInserimentoFornitori } from "./pagina-fornitori/dialoghi-fornitori";
-import { DialogoEliminaFornitori } from "./pagina-fornitori/dialoghi-fornitori";
-import { DialogoModificaFornitori } from "./pagina-fornitori/dialoghi-fornitori";
+import { DialogoInserimentoFornitori } from "./admin/pagina-fornitori/dialoghi-fornitori";
+import { DialogoEliminaFornitori } from "./admin/pagina-fornitori/dialoghi-fornitori";
+import { DialogoModificaFornitori } from "./admin/pagina-fornitori/dialoghi-fornitori";
 
 
-import { DialogoInserimentoTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
-import { DialogoEliminaTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
-import { DialogoModificaTrattamenti } from "./pagina-trattamenti/dialoghi-trattamenti";
+import { DialogoInserimentoTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
+import { DialogoEliminaTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
+import { DialogoModificaTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
+import { SlideshowComponent } from './home/slideshow/slideshow.component';
 
 
 @NgModule({
@@ -61,7 +64,10 @@ import { DialogoModificaTrattamenti } from "./pagina-trattamenti/dialoghi-tratta
     DialogoModificaFornitori,
     DialogoInserimentoTrattamenti,
     DialogoEliminaTrattamenti,
-    DialogoModificaTrattamenti
+    DialogoModificaTrattamenti,
+    AdminComponent,
+    HomeComponent,
+    SlideshowComponent
     
   ],
   imports: [
@@ -80,10 +86,11 @@ import { DialogoModificaTrattamenti } from "./pagina-trattamenti/dialoghi-tratta
     MatSortModule,
     FormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'legacy' } },],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -21,7 +21,11 @@
     "@angular/platform-browser": "~11.2.6",
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
+    "angular-calendar": "^0.28.22",
+    "bootstrap": "^4.6.0",
     "rxjs": "~6.6.0",
+    "smart-webcomponents": "^9.3.3",
+    "smart-webcomponents-angular": "^9.3.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

@@ -1,49 +1,5 @@
-mat-sidenav-content::-webkit-scrollbar {display: none;}
-
-mat-sidenav-content {
-    display: flex;
-    flex-direction: column;
+app-home {
+    display: none;
 }
-
-mat-sidenav-container {
-    height: 100%;
-    width: 100%;
-    background-color: #feeae6;
-}
-
-mat-sidenav {
-    padding-top: 12px;
-    width: 225px;
-    background-color: #feeae6;
-    overflow: hidden;
-    height: 100%;
-}
-
-spacer {
-    flex: 1 1 auto;
-}
-
-.bottone-sidenav {
-    width: 90%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    text-align:start;
-}
-
-#mainDiv {
-    padding: 2%;
-}
-
-.sticky {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.pagina {
-    margin-top: 2%;
-}
-
 
 

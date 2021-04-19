@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "esteticaFascino";
-
-  //funzione di scroll automatico in un div a scelta
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: "smooth"});
-  }
 }
