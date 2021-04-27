@@ -18,6 +18,14 @@ const ELEMENT_DATA: Cliente[] = [
   {id_cliente: 1, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
   {id_cliente: 2, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
   {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
+  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
 ];
 
 @Component({
