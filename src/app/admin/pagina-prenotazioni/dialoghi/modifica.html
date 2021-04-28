@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Modifica Prenotazione</h1>
+<div mat-dialog-content>
+
+    <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select>
+            <mat-option></mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Trattamento</mat-label>
+        <mat-select>
+            <mat-option></mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Data</mat-label>
+        <input matInput type="date" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Ora</mat-label>
+        <input matInput type="time" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Durata</mat-label>
+        <input matInput type="number">
+    </mat-form-field>
+    
+</div>
+<div mat-dialog-actions>  
+    <button mat-stroked-button (click)="onNoClick()">Annulla</button>
+    <button mat-stroked-button cdkFocusInitial (click)="onNoClick();">Modifica</button>
+</div>

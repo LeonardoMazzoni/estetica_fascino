@@ -21,7 +21,7 @@ const ELEMENT_DATA: Fornitore[] = [
 @Component({
   selector: 'app-pagina-fornitori',
   templateUrl: './pagina-fornitori.component.html',
-  styleUrls: ['./pagina-fornitori.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class PaginaFornitoriComponent {
 

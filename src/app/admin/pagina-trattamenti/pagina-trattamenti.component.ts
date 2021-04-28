@@ -20,7 +20,7 @@ const ELEMENT_DATA: Trattamento[] = [
 @Component({
   selector: 'app-pagina-trattamenti',
   templateUrl: './pagina-trattamenti.component.html',
-  styleUrls: ['./pagina-trattamenti.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class PaginaTrattamentiComponent {
 

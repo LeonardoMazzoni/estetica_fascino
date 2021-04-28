@@ -31,7 +31,7 @@ const ELEMENT_DATA: Cliente[] = [
 @Component({
   selector: 'app-pagina-clienti',
   templateUrl: './pagina-clienti.component.html',
-  styleUrls: ['./pagina-clienti.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
