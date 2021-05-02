@@ -52,11 +52,6 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 
 
-
-
-import { SchedulerModule } from '@smart-webcomponents-angular/scheduler';
-
-
 @NgModule({
   declarations: [
     AppComponent,
