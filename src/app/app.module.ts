@@ -44,6 +44,8 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { SlideshowComponent } from './home/slideshow/slideshow.component';
 
+import { SchedulerModule } from '@smart-webcomponents-angular/scheduler';
+
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { SlideshowComponent } from './home/slideshow/slideshow.component';
     FormsModule,
     MatInputModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    SchedulerModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

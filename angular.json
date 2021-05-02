@@ -92,7 +92,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/smart-webcomponents-angular/source/styles/smart.default.css",
+              "node_modules/@smart-webcomponents-angular/styles/smart.base.css",
+		          "node_modules/@smart-webcomponents-angular/styles/smart.scheduler.css",
+		          "node_modules/@smart-webcomponents-angular/styles/smart.common.css"
             ],
             "scripts": []
           }
