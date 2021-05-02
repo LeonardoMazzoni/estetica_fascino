@@ -1,3 +1,23 @@
 .spacer {
     flex: 1;
 }
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.transparent {
+    opacity: 0.5;
+}
+
+
+.footer {
+    bottom: 0;
+    background-color:darkslategrey;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

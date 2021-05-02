@@ -1,4 +1,4 @@
-<h1>trattamenti</h1>
+<h1>Trattamenti</h1>
 <mat-toolbar color="primary">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event)" placeholder="Cerca trattamento" #input>
@@ -49,7 +49,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
         <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">Nessun trattamento trovato corrispondente alla ricerca : {{input.value}}"</td>
+            <td class="mat-cell" colspan="4">Nessun trattamento trovato </td>
         </tr>
     </table>
 </div>

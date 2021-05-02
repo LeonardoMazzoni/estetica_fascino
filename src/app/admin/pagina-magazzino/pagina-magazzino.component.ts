@@ -25,7 +25,7 @@ const ELEMENT_DATA: Prodotto[] = [
 @Component({
   selector: 'app-pagina-magazzino',
   templateUrl: './pagina-magazzino.component.html',
-  styleUrls: ['./pagina-magazzino.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class PaginaMagazzinoComponent{
 

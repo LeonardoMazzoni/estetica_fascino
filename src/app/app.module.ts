@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { PaginaMagazzinoComponent } from './admin/pagina-magazzino/pagina-magazz
 import { PaginaFornitoriComponent } from './admin/pagina-fornitori/pagina-fornitori.component';
 import { PaginaPrenotazioniComponent } from './admin/pagina-prenotazioni/pagina-prenotazioni.component';
 import { PaginaTrattamentiComponent } from './admin/pagina-trattamenti/pagina-trattamenti.component';
+import { SlideshowComponent } from './home/slideshow/slideshow.component';
 
 import { DialogoInserimentoClienti } from "./admin/pagina-clienti/dialoghi-clienti";
 import { DialogoEliminaClienti } from "./admin/pagina-clienti/dialoghi-clienti";
@@ -40,9 +43,16 @@ import { DialogoModificaFornitori } from "./admin/pagina-fornitori/dialoghi-forn
 import { DialogoInserimentoTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
 import { DialogoEliminaTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
 import { DialogoModificaTrattamenti } from "./admin/pagina-trattamenti/dialoghi-trattamenti";
+
+import { DialogoInserimentoPrenotazioni } from "./admin/pagina-prenotazioni/dialoghi-prenotazioni";
+import { DialogoEliminaPrenotazioni } from "./admin/pagina-prenotazioni/dialoghi-prenotazioni";
+import { DialogoModificaPrenotazioni } from "./admin/pagina-prenotazioni/dialoghi-prenotazioni";
+
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { SlideshowComponent } from './home/slideshow/slideshow.component';
+
+
+
 
 import { SchedulerModule } from '@smart-webcomponents-angular/scheduler';
 
@@ -69,7 +79,10 @@ import { SchedulerModule } from '@smart-webcomponents-angular/scheduler';
     DialogoModificaTrattamenti,
     AdminComponent,
     HomeComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    DialogoInserimentoPrenotazioni,
+    DialogoEliminaPrenotazioni,
+    DialogoModificaPrenotazioni
     
   ],
   imports: [
@@ -90,7 +103,7 @@ import { SchedulerModule } from '@smart-webcomponents-angular/scheduler';
     MatInputModule,
     MatDialogModule,
     MatTabsModule,
-    SchedulerModule
+    MatSelectModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

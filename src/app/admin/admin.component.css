@@ -19,7 +19,7 @@ mat-sidenav {
     height: 100%;
 }
 
-spacer {
+.spacer {
     flex: 1 1 auto;
 }
 
@@ -44,3 +44,17 @@ spacer {
 .pagina {
     margin-top: 2%;
 }
+
+.container {
+    max-height: 390px;
+    overflow: auto;
+}
+  
+.container::-webkit-scrollbar {
+    display: none;
+}
+  
+table {
+    width: 100%;
+}
+  
