@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {DialogoInserimentoClienti} from './dialoghi-clienti';
 import {DialogoEliminaClienti} from './dialoghi-clienti';
 import {DialogoModificaClienti} from './dialoghi-clienti';
+import { RestService } from '../../rest.service';
 
 export interface Cliente {
   id_cliente: number;
@@ -11,23 +12,9 @@ export interface Cliente {
   cognome: string;
   telefono: string;
   email: string;
-  data_nascita: Date
-;
+  data_nascita: Date;
 }
 
-let ELEMENT_DATA: Cliente[] = [
-  {id_cliente: 1, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 2, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-  {id_cliente: 3, nome: 'esempio nome', cognome: 'esempio cognome', telefono: '3333333', email: 'esempio@email', data_nascita: new Date("2019-01-16")},
-];
 
 @Component({
   selector: 'app-pagina-clienti',
@@ -37,9 +24,12 @@ let ELEMENT_DATA: Cliente[] = [
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'data_nascita', 'azioni'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource:any;
+  errors:any;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private restClient: RestService) {
+    this.loadData();
+  }
 
   //funzione per filtrare il cliente cercato
   applyFilter(event: Event) {
@@ -60,5 +50,12 @@ export class PaginaClientiComponent {
   //funzione che apre il dialogo per confermare l'eliminazione del cliente
   openDialogElimina(): void {
     const dialogRef = this.dialog.open(DialogoEliminaClienti);
+  }
+
+  loadData(): void {
+    this.restClient.getDataRows("http://localhost/dashboard/estetica/clienti").subscribe(
+      data => this.dataSource = data,
+      error => this.errors = error
+    )
   }
 }
