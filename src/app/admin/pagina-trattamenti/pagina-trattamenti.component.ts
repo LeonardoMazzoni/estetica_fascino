@@ -8,13 +8,14 @@ import { DialogoModificaTrattamenti } from './dialoghi-trattamenti';
 export interface Trattamento {
   id_trattamento: number;
   nome: string;
+  durata: number;
   descrizione: string;
 }
 
 const ELEMENT_DATA: Trattamento[] = [
-  {id_trattamento: 1, nome: 'nome', descrizione: 'Descrizione trattamento'},
-  {id_trattamento: 2, nome: 'nome', descrizione: 'Descrizione trattamento'},
-  {id_trattamento: 3, nome: 'nome', descrizione: 'Descrizione trattamento'},
+  {id_trattamento: 1, nome: 'nome',durata: 15, descrizione: 'Descrizione trattamento'},
+  {id_trattamento: 2, nome: 'nome',durata: 30, descrizione: 'Descrizione trattamento'},
+  {id_trattamento: 3, nome: 'nome',durata: 45, descrizione: 'Descrizione trattamento'},
 ];
 
 @Component({
@@ -25,7 +26,7 @@ const ELEMENT_DATA: Trattamento[] = [
 export class PaginaTrattamentiComponent {
 
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
-  displayedColumns: string[] = ['nome', 'descrizione','azioni'];
+  displayedColumns: string[] = ['nome','durata', 'descrizione','azioni'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   constructor(public dialog: MatDialog) {}

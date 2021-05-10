@@ -1,6 +1,6 @@
 {
-  "/estetica": {
-    "target": "http://localhost:4200",
+  "/estetica/*": {
+    "target": "http://localhost:4200/",
     "secure": false
   }
 }

@@ -7,12 +7,12 @@ import {DialogoModificaClienti} from './dialoghi-clienti';
 import { RestService } from '../../rest.service';
 
 export interface Cliente {
-  id_cliente: number;
+  id: number;
   nome: string;
   cognome: string;
   telefono: string;
   email: string;
-  data_nascita: Date;
+  password: string;
 }
 
 
@@ -23,7 +23,7 @@ export interface Cliente {
 })
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
-  displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'data_nascita', 'azioni'];
+  displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
   dataSource:any;
   errors:any;
 
@@ -53,7 +53,7 @@ export class PaginaClientiComponent {
   }
 
   loadData(): void {
-    this.restClient.getDataRows("http://localhost/dashboard/estetica/clienti").subscribe(
+    this.restClient.getDataRows('http://localhost/dashboard/estetica/clienti').subscribe(
       data => this.dataSource = data,
       error => this.errors = error
     )

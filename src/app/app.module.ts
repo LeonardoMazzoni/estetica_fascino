@@ -43,6 +43,8 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { RestService } from './rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogoLogin } from './home/dialoghi-home';
+import {DialogoSignin} from './home/dialoghi-home';
 
 
 @NgModule({
@@ -70,7 +72,9 @@ import { HttpClientModule } from '@angular/common/http';
     SlideshowComponent,
     DialogoInserimentoPrenotazioni,
     DialogoEliminaPrenotazioni,
-    DialogoModificaPrenotazioni
+    DialogoModificaPrenotazioni,
+    DialogoLogin,
+    DialogoSignin
     
   ],
   imports: [
