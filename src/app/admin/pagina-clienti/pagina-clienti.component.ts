@@ -24,7 +24,7 @@ export interface Cliente {
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
-  dataSource:any;
+  data:any;
   errors:any;
 
   constructor(public dialog: MatDialog, private restClient: RestService) {
@@ -34,7 +34,7 @@ export class PaginaClientiComponent {
   //funzione per filtrare il cliente cercato
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.data.filter = filterValue.trim().toLowerCase();
   }
 
   //funzione che apre il dialogo per inserire il nuovo cliente
@@ -53,8 +53,8 @@ export class PaginaClientiComponent {
   }
 
   loadData(): void {
-    this.restClient.getDataRows('http://localhost/dashboard/estetica/clienti').subscribe(
-      data => this.dataSource = data,
+    this.restClient.getDataRows("http://localhost:4200/Mazzoni/API/clienti/cliente.php").subscribe(
+      data => this.data = data,
       error => this.errors = error
     )
   }

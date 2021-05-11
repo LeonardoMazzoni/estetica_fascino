@@ -1,6 +1,8 @@
 {
-  "/estetica/*": {
-    "target": "http://localhost:4200/",
-    "secure": false
+  "/Mazzoni/API/clienti/cliente.php": {
+    "target": "http://localhost:80",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
