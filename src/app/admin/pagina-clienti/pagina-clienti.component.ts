@@ -28,7 +28,7 @@ export class PaginaClientiComponent {
   errors:any;
 
   constructor(public dialog: MatDialog, private restClient: RestService) {
-    this.loadData();
+    this.load();
   }
 
   //funzione per filtrare il cliente cercato
@@ -52,10 +52,15 @@ export class PaginaClientiComponent {
     const dialogRef = this.dialog.open(DialogoEliminaClienti);
   }
 
-  loadData(): void {
-    this.restClient.getDataRows("http://localhost:4200/Mazzoni/API/clienti/cliente.php").subscribe(
+  load(): void {
+    this.restClient.get('http://localhost:4200/Mazzoni/API/clienti/cliente.php').subscribe(
       data => this.data = data,
       error => this.errors = error
     )
+  }
+
+  delete(id: number): void{
+    this.restClient.delete('http://localhost:4200/Mazzoni/API/clienti/cliente.php?id=' + id).subscribe()
+    this.load()
   }
 }
