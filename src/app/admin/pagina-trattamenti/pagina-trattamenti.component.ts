@@ -2,7 +2,6 @@ import { Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import { DialogoInserimentoTrattamenti } from './dialoghi-trattamenti';
-import { DialogoEliminaTrattamenti } from './dialoghi-trattamenti';
 import { DialogoModificaTrattamenti } from './dialoghi-trattamenti';
 
 export interface Trattamento {
@@ -45,10 +44,5 @@ export class PaginaTrattamentiComponent {
   //funzione che apre il dialogo per modificare un cliente
   openDialogModifica(): void {
     const dialogRef = this.dialog.open(DialogoModificaTrattamenti);
-  }
-
-  //funzione che apre il dialogo per confermare l'eliminazione del cliente
-  openDialogElimina(): void {
-    const dialogRef = this.dialog.open(DialogoEliminaTrattamenti);
   }
 }

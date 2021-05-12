@@ -18,21 +18,6 @@ export class DialogoInserimentoProdotto {
     }
 }
 
-//elimina
-@Component({
-    selector: 'dialogo-elimina-prodotto',
-    templateUrl: './dialoghi/elimina.html',
-})
-export class DialogoEliminaProdotto {
-    constructor(
-        public dialogRef: MatDialogRef<DialogoEliminaProdotto>
-    ) {}
-
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
-}
-
 //modifica
 @Component({
     selector: 'dialogo-modifica-prodotto',

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import {DialogoInserimentoPrenotazioni} from './dialoghi-prenotazioni';
-import {DialogoEliminaPrenotazioni} from './dialoghi-prenotazioni';
 import {DialogoModificaPrenotazioni} from './dialoghi-prenotazioni';
 
 export interface Prenotazione {
@@ -48,11 +47,6 @@ export class PaginaPrenotazioniComponent implements OnInit {
 
   //funzione che apre il dialogo per modificare un cliente
   openDialogModifica(): void {
-    const dialogRef = this.dialog.open(DialogoEliminaPrenotazioni);
-  }
-
-  //funzione che apre il dialogo per confermare l'eliminazione del cliente
-  openDialogElimina(): void {
     const dialogRef = this.dialog.open(DialogoModificaPrenotazioni);
   }
 }

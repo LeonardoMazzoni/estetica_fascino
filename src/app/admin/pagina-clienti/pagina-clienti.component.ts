@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import {DialogoInserimentoClienti} from './dialoghi-clienti';
-import {DialogoEliminaClienti} from './dialoghi-clienti';
 import {DialogoModificaClienti} from './dialoghi-clienti';
 import { RestService } from '../../rest.service';
 
@@ -46,12 +45,7 @@ export class PaginaClientiComponent {
   openDialogModifica(): void {
     const dialogRef = this.dialog.open(DialogoModificaClienti);
   }
-
-  //funzione che apre il dialogo per confermare l'eliminazione del cliente
-  openDialogElimina(): void {
-    const dialogRef = this.dialog.open(DialogoEliminaClienti);
-  }
-
+  
   load(): void {
     this.restClient.get('http://localhost:4200/Mazzoni/API/clienti/cliente.php').subscribe(
       data => this.data = data,
