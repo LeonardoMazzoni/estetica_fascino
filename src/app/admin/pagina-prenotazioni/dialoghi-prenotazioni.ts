@@ -18,21 +18,6 @@ export class DialogoInserimentoPrenotazioni {
     }
 }
 
-//elimina
-@Component({
-    selector: 'dialogo-elimina-prenotazioni',
-    templateUrl: './dialoghi/elimina.html',
-})
-export class DialogoEliminaPrenotazioni {
-    constructor(
-        public dialogRef: MatDialogRef<DialogoEliminaPrenotazioni>
-    ) {}
-
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
-}
-
 //modifica
 @Component({
     selector: 'dialogo-modifica-prenotazioni',

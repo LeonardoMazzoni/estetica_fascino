@@ -1,0 +1,39 @@
+<mat-card class="mat-elevation-z8">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>e-Mail</mat-label>
+                    <input 
+                        matInput 
+                        type="email"
+                        formControlName="email"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+    
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input
+                        type="password" 
+                        matInput 
+                        formControlName="password"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+            <p *ngIf="error" class="error">
+                {{ error }}
+            </p>
+
+            <div class="button">
+                <button mat-button type="button" (click)="registrati()">Registrati</button>
+                <button mat-raised-button type="submit">Accedi</button>
+            </div>
+  
+          </form>
+    </mat-card-content>
+</mat-card>

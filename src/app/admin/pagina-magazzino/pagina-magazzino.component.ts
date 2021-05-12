@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import {DialogoInserimentoProdotto} from './dialoghi-magazzino';
-import {DialogoEliminaProdotto} from './dialoghi-magazzino';
 import {DialogoModificaProdotto} from './dialoghi-magazzino';
 
 export interface Prodotto {
@@ -49,10 +48,5 @@ export class PaginaMagazzinoComponent{
   //funzione che apre il dialogo per modificare un cliente
   openDialogModifica(): void {
     const dialogRef = this.dialog.open(DialogoModificaProdotto);
-  }
-
-  //funzione che apre il dialogo per confermare l'eliminazione del cliente
-  openDialogElimina(): void {
-    const dialogRef = this.dialog.open(DialogoEliminaProdotto);
   }
 }

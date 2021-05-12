@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
-import { DialogoEliminaFornitori, DialogoInserimentoFornitori, DialogoModificaFornitori } from './dialoghi-fornitori';
+import {DialogoInserimentoFornitori, DialogoModificaFornitori} from './dialoghi-fornitori';
 
 export interface Fornitore {
   id_fornitore: number;
@@ -46,10 +46,4 @@ export class PaginaFornitoriComponent {
   openDialogModifica(): void {
     const dialogRef = this.dialog.open(DialogoModificaFornitori);
   }
-
-  //funzione che apre il dialogo per confermare l'eliminazione del cliente
-  openDialogElimina(): void {
-    const dialogRef = this.dialog.open(DialogoEliminaFornitori);
-  }
-
 }

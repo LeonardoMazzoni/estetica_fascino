@@ -18,21 +18,6 @@ export class DialogoInserimentoTrattamenti {
     }
 }
 
-//elimina
-@Component({
-    selector: 'dialogo-elimina-trattamenti',
-    templateUrl: './dialoghi/elimina.html',
-})
-export class DialogoEliminaTrattamenti {
-    constructor(
-        public dialogRef: MatDialogRef<DialogoEliminaTrattamenti>
-    ) {}
-
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
-}
-
 //modifica
 @Component({
     selector: 'dialogo-modifica-trattamenti',

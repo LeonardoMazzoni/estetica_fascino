@@ -17,22 +17,6 @@ export class DialogoInserimentoFornitori {
         this.dialogRef.close();
     }
 }
-
-//elimina
-@Component({
-    selector: 'dialogo-elimina-fornitori',
-    templateUrl: './dialoghi/elimina.html',
-})
-export class DialogoEliminaFornitori {
-    constructor(
-        public dialogRef: MatDialogRef<DialogoEliminaFornitori>
-    ) {}
-
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
-}
-
 //modifica
 @Component({
     selector: 'dialogo-modifica-fornitori',

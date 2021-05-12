@@ -17,22 +17,6 @@ export class DialogoInserimentoClienti {
         this.dialogRef.close();
     }
 }
-
-//elimina
-@Component({
-    selector: 'dialogo-elimina-clienti',
-    templateUrl: './dialoghi/elimina.html',
-})
-export class DialogoEliminaClienti {
-    constructor(
-        public dialogRef: MatDialogRef<DialogoEliminaClienti>
-    ) {}
-
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
-}
-
 //modifica
 @Component({
     selector: 'dialogo-modifica-clienti',
