@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  form: FormGroup = new FormGroup({
+    nome: new FormControl(''),
+    cognome: new FormControl(''),
+    telefono: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  submit() {
+    if (this.form.valid) {
+      this.submitEM.emit(this.form.value);
+    }
   }
+  @Input() error: string = '';
 
+  @Output() submitEM = new EventEmitter();
+
+  annulla(): void{
+    this.router.navigateByUrl('');
+  }
 }

@@ -1,1 +1,74 @@
-<p>signup works!</p>
+<mat-card class="mat-elevation-z8">
+    <mat-card-title>Registrati</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>nome</mat-label>
+                    <input 
+                        type="text"
+                        matInput 
+                        formControlName="nome"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+    
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>cognome</mat-label>
+                    <input
+                        type="text" 
+                        matInput 
+                        formControlName="cognome"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>e-Mail</mat-label>
+                    <input 
+                        type="email"
+                        matInput 
+                        formControlName="email"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>telefono</mat-label>
+                    <input
+                        type="text" 
+                        matInput 
+                        formControlName="telefono"
+                    />
+                </mat-form-field>
+            </p>
+    
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input
+                        type="password" 
+                        matInput 
+                        formControlName="password"
+                        required
+                    />
+                </mat-form-field>
+            </p>
+            <p *ngIf="error" class="error">
+                {{ error }}
+            </p>
+
+            <div class="button">
+                <button mat-button type="button" (click)="annulla()">Annulla</button>
+                <button mat-raised-button type="submit">Registrati</button>
+            </div>
+  
+          </form>
+    </mat-card-content>
+</mat-card>

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="mat-elevation-z8">
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="submit()">
@@ -30,8 +30,8 @@
             </p>
 
             <div class="button">
-                <button mat-button type="submit">registrati</button>
-                <button mat-raised-button type="submit">accedi</button>
+                <button mat-button type="button" (click)="registrati()">Registrati</button>
+                <button mat-raised-button type="submit">Accedi</button>
             </div>
   
           </form>

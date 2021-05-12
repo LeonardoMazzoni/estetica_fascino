@@ -1,5 +1,6 @@
 import { Input, Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
+  constructor(private router: Router) {}
 
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -21,4 +23,8 @@ export class LoginComponent{
   @Input() error: string = '';
 
   @Output() submitEM = new EventEmitter();
+
+  registrati(): void{
+    this.router.navigateByUrl('signup');
+  }
 }
