@@ -27,6 +27,9 @@ export class PaginaClientiComponent {
   data:any;
   errors:any;
 
+  //apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php'; */
+  apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
+
   constructor(public dialog: MatDialog, private restClient: RestService) {
     this.load();
   }
@@ -52,15 +55,19 @@ export class PaginaClientiComponent {
     const dialogRef = this.dialog.open(DialogoEliminaClienti);
   }
 
+  
   load(): void {
-    this.restClient.get('http://localhost:4200/Mazzoni/API/clienti/cliente.php').subscribe(
+    this.restClient.get(this.apiURL).subscribe(
       data => this.data = data,
       error => this.errors = error
     )
   }
 
   delete(id: number): void{
-    this.restClient.delete('http://localhost:4200/Mazzoni/API/clienti/cliente.php?id=' + id).subscribe()
-    this.load()
+    this.restClient.delete( this.apiURL+'/'+id).subscribe(
+      data => this.load(),
+      error => this.errors = error
+    )
+    location.reload()
   }
 }

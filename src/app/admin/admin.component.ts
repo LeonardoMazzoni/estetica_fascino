@@ -13,4 +13,12 @@ export class AdminComponent {
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: "smooth"});
   }
+
+  mostra(el: HTMLElement){
+    if (el.style.display === "none") {
+      el.style.display = "block";
+    } else {
+      el.style.display = "none";
+    }
+  }
 }

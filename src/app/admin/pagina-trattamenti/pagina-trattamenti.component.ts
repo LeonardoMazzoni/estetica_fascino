@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {MatTableDataSource} from '@angular/material/table';
 import { DialogoInserimentoTrattamenti } from './dialoghi-trattamenti';
 import { DialogoEliminaTrattamenti } from './dialoghi-trattamenti';
 import { DialogoModificaTrattamenti } from './dialoghi-trattamenti';
+import { RestService } from '../../rest.service';
 
 export interface Trattamento {
   id_trattamento: number;
@@ -12,12 +12,6 @@ export interface Trattamento {
   descrizione: string;
 }
 
-const ELEMENT_DATA: Trattamento[] = [
-  {id_trattamento: 1, nome: 'nome',durata: 15, descrizione: 'Descrizione trattamento'},
-  {id_trattamento: 2, nome: 'nome',durata: 30, descrizione: 'Descrizione trattamento'},
-  {id_trattamento: 3, nome: 'nome',durata: 45, descrizione: 'Descrizione trattamento'},
-];
-
 @Component({
   selector: 'app-pagina-trattamenti',
   templateUrl: './pagina-trattamenti.component.html',
@@ -25,11 +19,17 @@ const ELEMENT_DATA: Trattamento[] = [
 })
 export class PaginaTrattamentiComponent {
 
+  //apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php'; */
+  apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php';
+
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome','durata', 'descrizione','azioni'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource:any;
+  errors: any;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private restClient: RestService) {
+    this.load();
+  }
 
   //funzione per filtrare il cliente cercato
   applyFilter(event: Event) {
@@ -50,5 +50,20 @@ export class PaginaTrattamentiComponent {
   //funzione che apre il dialogo per confermare l'eliminazione del cliente
   openDialogElimina(): void {
     const dialogRef = this.dialog.open(DialogoEliminaTrattamenti);
+  }
+
+  load(): void {
+    this.restClient.get(this.apiURL).subscribe(
+      data => this.dataSource = data,
+      error => this.errors = error
+    )
+  }
+
+  delete(id: number): void{
+    this.restClient.delete( this.apiURL+'/'+id).subscribe(
+      data => this.load(),
+      error => this.errors = error
+    )
+    location.reload()
   }
 }

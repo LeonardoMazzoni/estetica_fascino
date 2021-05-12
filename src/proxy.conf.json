@@ -1,5 +1,5 @@
 {
-  "/Mazzoni/API/clienti/cliente.php": {
+  "/dashboard/*": {
     "target": "http://localhost:80",
     "secure": false,
     "changeOrigin": true,
