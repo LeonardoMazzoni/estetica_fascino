@@ -15,11 +15,13 @@ mat-card-content {
     justify-content: center;
 }
 
+mat-card-title {
+    padding-bottom: 7%;
+}
+
 .error {
-    padding: 16px;
-    width: 70%;
     color: red;
-    justify-content: center;
+    text-align: center;
 }
 
 .button {

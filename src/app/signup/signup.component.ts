@@ -24,7 +24,7 @@ export class SignupComponent {
     if (this.form.valid) {
       this.submitEM.emit(this.form.value);
     } else {
-      this.error = 'errore'
+      this.error = 'campi non validi'
     }
   }
   @Input() error: string = '';

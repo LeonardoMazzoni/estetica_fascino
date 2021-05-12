@@ -22,7 +22,6 @@ export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
 
-  apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php';
   data:any;
   errors:any;
 
