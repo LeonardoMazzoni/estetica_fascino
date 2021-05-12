@@ -10,7 +10,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -23,7 +23,6 @@ import { PaginaMagazzinoComponent } from './admin/pagina-magazzino/pagina-magazz
 import { PaginaFornitoriComponent } from './admin/pagina-fornitori/pagina-fornitori.component';
 import { PaginaPrenotazioniComponent } from './admin/pagina-prenotazioni/pagina-prenotazioni.component';
 import { PaginaTrattamentiComponent } from './admin/pagina-trattamenti/pagina-trattamenti.component';
-import { SlideshowComponent } from './home/slideshow/slideshow.component';
 import { DialogoInserimentoClienti } from "./admin/pagina-clienti/dialoghi-clienti";
 import { DialogoEliminaClienti } from "./admin/pagina-clienti/dialoghi-clienti";
 import { DialogoModificaClienti } from "./admin/pagina-clienti/dialoghi-clienti";
@@ -43,9 +42,8 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { RestService } from './rest.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DialogoLogin } from './home/dialoghi-home';
-import {DialogoSignin} from './home/dialoghi-home';
-
+import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -69,12 +67,10 @@ import {DialogoSignin} from './home/dialoghi-home';
     DialogoModificaTrattamenti,
     AdminComponent,
     HomeComponent,
-    SlideshowComponent,
     DialogoInserimentoPrenotazioni,
     DialogoEliminaPrenotazioni,
     DialogoModificaPrenotazioni,
-    DialogoLogin,
-    DialogoSignin
+    LoginComponent,
     
   ],
   imports: [
@@ -96,7 +92,9 @@ import {DialogoSignin} from './home/dialoghi-home';
     MatDialogModule,
     MatTabsModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [RestService],
