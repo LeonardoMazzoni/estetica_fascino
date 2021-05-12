@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {MatTableDataSource} from '@angular/material/table';
 import {DialogoInserimentoClienti} from './dialoghi-clienti';
 import {DialogoModificaClienti} from './dialoghi-clienti';
 import { RestService } from '../../rest.service';
@@ -14,7 +13,6 @@ export interface Cliente {
   password: string;
 }
 
-
 @Component({
   selector: 'app-pagina-clienti',
   templateUrl: './pagina-clienti.component.html',
@@ -23,6 +21,8 @@ export interface Cliente {
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
+
+  apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php';
   data:any;
   errors:any;
 
@@ -47,14 +47,14 @@ export class PaginaClientiComponent {
   }
   
   load(): void {
-    this.restClient.get('http://localhost:4200/Mazzoni/API/clienti/cliente.php').subscribe(
+    this.restClient.get(this.apiURL).subscribe(
       data => this.data = data,
       error => this.errors = error
     )
   }
 
   delete(id: number): void{
-    this.restClient.delete('http://localhost:4200/Mazzoni/API/clienti/cliente.php?id=' + id).subscribe()
+    this.restClient.delete(this.apiURL+'/' + id).subscribe()
     this.load()
   }
 }

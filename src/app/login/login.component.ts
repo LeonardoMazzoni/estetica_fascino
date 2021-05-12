@@ -18,6 +18,8 @@ export class LoginComponent{
   submit() {
     if (this.form.valid) {
       this.submitEM.emit(this.form.value);
+    } else {
+      this.error = 'campi non validi'
     }
   }
   @Input() error: string = '';

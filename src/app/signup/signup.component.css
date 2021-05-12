@@ -16,10 +16,8 @@ mat-card-content {
 }
 
 .error {
-    padding: 16px;
-    width: 70%;
     color: red;
-    justify-content: center;
+    text-align: center;
 }
 
 .button {

@@ -23,6 +23,8 @@ export class SignupComponent {
   submit() {
     if (this.form.valid) {
       this.submitEM.emit(this.form.value);
+    } else {
+      this.error = 'errore'
     }
   }
   @Input() error: string = '';
