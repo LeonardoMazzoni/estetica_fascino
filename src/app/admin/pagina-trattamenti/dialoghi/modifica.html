@@ -1,19 +1,33 @@
 <h1 mat-dialog-title>Modifica Trattamento</h1>
 <div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="nome">
+            </mat-form-field>
+        </p>
 
+        <p>
+            <mat-form-field>
+                <mat-label>Durata</mat-label>
+                <mat-select formControlName="durata">
+                    <mat-option value="15">15 minuti</mat-option>
+                    <mat-option value="30">30 minuti</mat-option>
+                    <mat-option value="45">45 minuti</mat-option>
+                    <mat-option value="60">60 minuti</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>Descrizione</mat-label>
+                <textarea matInput formControlName="descrizione"></textarea>
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Descrizione</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
-    
-</div>
-<div mat-dialog-actions>  
-    <button mat-stroked-button (click)="onNoClick()">Annulla</button>
-    <button mat-stroked-button cdkFocusInitial (click)="onNoClick();">Modifica</button>
+        <button mat-button type="button" (click)="onNoClick()">Annulla</button>
+        <button mat-button type="submit">Modifica</button>
+    </form>
 </div>

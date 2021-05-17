@@ -1,6 +1,7 @@
-import { Input, Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormGroup, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
+import {RestService} from '../rest.service';
 
 
 @Component({
@@ -10,7 +11,13 @@ import {Router} from '@angular/router';
 })
 export class SignupComponent {
 
-  constructor(private router: Router) {}
+  data : any;
+  error: any;
+
+  constructor(private router: Router,  private restClient: RestService) {}
+
+  //apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php'; */
+  apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
 
   form: FormGroup = new FormGroup({
     nome: new FormControl(''),
@@ -20,17 +27,15 @@ export class SignupComponent {
     password: new FormControl(''),
   });
 
+  
   submit() {
     if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
+      this.restClient.add(this.apiURL, this.form.value).subscribe();
     } else {
-      this.error = 'campi non validi'
+      this.error = 'Inserisci i campi obbligatori'
     }
   }
-  @Input() error: string = '';
-
-  @Output() submitEM = new EventEmitter();
-
+  
   annulla(): void{
     this.router.navigateByUrl('');
   }

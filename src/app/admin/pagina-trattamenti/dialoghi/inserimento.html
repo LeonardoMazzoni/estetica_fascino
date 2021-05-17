@@ -1,18 +1,37 @@
 <h1 mat-dialog-title>Aggiungi Trattamento</h1>
 <div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="nome" required>
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput type="text" required>
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>Durata</mat-label>
+                <mat-select formControlName="durata" required>
+                    <mat-option value="15">15 minuti</mat-option>
+                    <mat-option value="30">30 minuti</mat-option>
+                    <mat-option value="45">45 minuti</mat-option>
+                    <mat-option value="60">60 minuti</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Descrizione</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>Descrizione</mat-label>
+                <textarea matInput formControlName="descrizione" required></textarea>
+            </mat-form-field>
+        </p>
 
-</div>
-<div mat-dialog-actions>  
-    <button mat-stroked-button (click)="onNoClick()">Annulla</button>
-    <button mat-stroked-button cdkFocusInitial (click)="onNoClick();">Aggiungi Trattamento</button>
+        <p *ngIf="error" class="error" style="color: red;">
+            {{ error }}
+        </p>
+
+        <button mat-stroked-button type="button" (click)="onNoClick()">Annulla</button>
+        <button mat-stroked-button type="submit">Aggiungi</button>
+    </form>
 </div>

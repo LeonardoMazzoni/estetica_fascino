@@ -38,12 +38,17 @@ export class PaginaTrattamentiComponent {
 
   //funzione che apre il dialogo per inserire il nuovo cliente
   openDialogInserimento(): void {
-    const dialogRef = this.dialog.open(DialogoInserimentoTrattamenti);
+    const dialogRef = this.dialog.open(DialogoInserimentoTrattamenti, {
+      width: '300px'
+    });
   }
 
   //funzione che apre il dialogo per modificare un cliente
-  openDialogModifica(): void {
-    const dialogRef = this.dialog.open(DialogoModificaTrattamenti);
+  openDialogModifica(t: Trattamento): void {
+    const dialogRef = this.dialog.open(DialogoModificaTrattamenti, {
+      width: '300px',
+      data: {'nome': t.nome, 'durata': t.durata, 'descrizione': t.descrizione}
+    });
   }
 
   load(): void {
@@ -54,10 +59,7 @@ export class PaginaTrattamentiComponent {
   }
 
   delete(id: number): void{
-    this.restClient.delete( this.apiURL+'/'+id).subscribe(
-      data => this.load(),
-      error => this.errors = error
-    )
+    this.restClient.delete(this.apiURL+'/'+id).subscribe()
     location.reload()
   }
 }

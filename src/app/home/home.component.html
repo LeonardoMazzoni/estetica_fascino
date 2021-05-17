@@ -1,1 +1,48 @@
+<mat-card class="mat-elevation-z8">
+    <mat-card-title>Prenota un trattamento</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field>
+                    <mat-label>Scegli il trattamento</mat-label>
+                    <mat-select formControlName="trattamento" required>
+                        <mat-option *ngFor="let trattamenti of trattamenti" [value]="trattamenti.id">
+                            {{trattamenti.nome}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
 
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Scegli la data</mat-label>
+                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="data" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Scegli l' orario</mat-label>
+                    <input matInput type="time" formControlName="ora" min="09:00" max="19:00" step="1800" required> 
+                </mat-form-field>
+            </div>
+
+            <div class="button">
+                <button mat-raised-button color="primary" type="button"><mat-icon>add</mat-icon> Aggiungi preferenza</button>
+            </div> <br>
+
+            <p *ngIf="error" class="error">
+                {{ error }}
+            </p>
+
+            <div class="button">
+                <button mat-button type="button" (click)="logout()">Esci</button>
+                <button mat-raised-button color="primary" type="submit">Prenota</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+    

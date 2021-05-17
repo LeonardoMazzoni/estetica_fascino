@@ -1,6 +1,8 @@
-import { Input, Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {Input, Component} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
+import {RestService} from '../rest.service';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
-  constructor(private router: Router) {}
+  constructor(private router: Router, public app: AppComponent) {
+  }
 
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -17,16 +20,21 @@ export class LoginComponent{
 
   submit() {
     if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
+      if(this.form.value.email == 'estetica@admin' && this.form.value.password == 'klf666402'){
+        this.app.accessoAdmin = true;
+        this.router.navigateByUrl('admin');
+      } else this.router.navigateByUrl('home');
+      
     } else {
-      this.error = 'campi non validi'
+      this.error = 'Inserisci i campi obbligatori'
     }
+    this.error = 'Password o email errati'
   }
   @Input() error: string = '';
 
-  @Output() submitEM = new EventEmitter();
-
-  registrati(): void{
-    this.router.navigateByUrl('signup');
+  myFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 1 && day !== 0;
   }
 }

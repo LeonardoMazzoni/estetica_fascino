@@ -1,3 +1,39 @@
-.spacer {
-    flex: 1;
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+mat-card-footer,
+mat-card-title,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-title {
+    padding-bottom: 7%;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    display: inline-block;
+}
+
+div label {
+    display: block;
 }

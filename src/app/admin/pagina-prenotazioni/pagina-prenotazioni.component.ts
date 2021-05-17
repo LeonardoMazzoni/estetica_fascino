@@ -6,12 +6,11 @@ import {DialogoInserimentoPrenotazioni} from './dialoghi-prenotazioni';
 import {DialogoModificaPrenotazioni} from './dialoghi-prenotazioni';
 
 export interface Prenotazione {
-  id_prenotazione: number;
+  id: number;
   data: Date;
   ora: Time;
-  durata: number;
-  id_trattamento: number;
-  id_cliente: number;
+  trattamento: number;
+  cliente: number;
 }
 
 const ELEMENT_DATA: Prenotazione[] = [

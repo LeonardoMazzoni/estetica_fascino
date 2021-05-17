@@ -31,6 +31,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
 import {SignupComponent} from './signup/signup.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -71,10 +74,12 @@ import {SignupComponent} from './signup/signup.component';
     MatSelectModule,
     HttpClientModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [RestService],
+  providers: [RestService, { provide: MAT_DATE_LOCALE, useValue: 'IT' }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
-  constructor() { }
+  constructor() {}
 
   //funzione di scroll automatico in un div a scelta
   scroll(el: HTMLElement) {

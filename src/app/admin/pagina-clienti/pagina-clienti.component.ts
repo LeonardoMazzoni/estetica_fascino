@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogoInserimentoClienti} from './dialoghi-clienti';
 import {DialogoModificaClienti} from './dialoghi-clienti';
 import { RestService } from '../../rest.service';
 
@@ -21,7 +20,6 @@ export interface Cliente {
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
-
   data:any;
   errors:any;
 
@@ -38,14 +36,12 @@ export class PaginaClientiComponent {
     this.data.filter = filterValue.trim().toLowerCase();
   }
 
-  //funzione che apre il dialogo per inserire il nuovo cliente
-  openDialogInserimento(): void {
-    const dialogRef = this.dialog.open(DialogoInserimentoClienti);
-  }
-
   //funzione che apre il dialogo per modificare un cliente
-  openDialogModifica(): void {
-    const dialogRef = this.dialog.open(DialogoModificaClienti);
+  openDialogModifica(cliente: Cliente): void {
+    const dialogRef = this.dialog.open(DialogoModificaClienti, {
+      width: '300px',
+      data: {id: cliente.id,'nome': cliente.nome, 'cognome': cliente.cognome, 'email': cliente.email, 'telefono': cliente.telefono}
+    });
   }
   
   load(): void {
@@ -56,10 +52,7 @@ export class PaginaClientiComponent {
   }
 
   delete(id: number): void{
-    this.restClient.delete( this.apiURL+'/'+id).subscribe(
-      data => this.load(),
-      error => this.errors = error
-    )
+    this.restClient.delete(this.apiURL+'/'+id).subscribe()
     location.reload()
   }
 }

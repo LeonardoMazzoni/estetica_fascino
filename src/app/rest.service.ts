@@ -14,18 +14,17 @@ export class RestService {
   }
 
   // delete
-  delete(apiURL : string) {
+  delete(apiURL : string): Observable<Object> {
     return this.http.delete(apiURL).pipe()
   }
 
   // post
   add(apiURL : string, o: Object) : Observable<Object> {
-    return this.http.post<Object>(apiURL, JSON.stringify(o)).pipe()
+    return this.http.post(apiURL, JSON.stringify(o)).pipe()
   }
 
   // put
-  update(apiURL : string, o: Object) {
+  update(apiURL : string, o: Object): Observable<Object> {
     return this.http.put(apiURL, JSON.stringify(o)).pipe()
   }
-  
 }

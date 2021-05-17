@@ -1,27 +1,36 @@
 <h1 mat-dialog-title>Modifica Cliente</h1>
 <div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="nome">
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>Cognome</mat-label>
+                <input matInput type="text" formControlName="cognome">
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Cognome</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>Telefono</mat-label>
+                <input matInput type="text" formControlName="telefono">
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>Telefono</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
+        <p>
+            <mat-form-field>
+                <mat-label>e-Mail</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+        </p>
 
-    <mat-form-field>
-        <mat-label>e-Mail</mat-label>
-        <input matInput type="email">
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>  
-    <button mat-stroked-button (click)="onNoClick()">Annulla</button>
-    <button mat-stroked-button cdkFocusInitial (click)="onNoClick();">Modifica</button>
+        <button mat-button type="button" (click)="onNoClick()">Annulla</button>
+        <button mat-button type="submit">Modifica</button>
+
+    </form>
 </div>
