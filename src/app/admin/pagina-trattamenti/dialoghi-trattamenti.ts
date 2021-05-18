@@ -21,8 +21,8 @@ export class DialogoInserimentoTrattamenti {
         this.dialogRef.close();
     }
 
-    //apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php'; */
-    apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php';
+    apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
+    /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
 
     form: FormGroup = new FormGroup({
         nome: new FormControl(''),
@@ -34,12 +34,13 @@ export class DialogoInserimentoTrattamenti {
     
     submit() {
         if(this.form.valid){
-            console.log(this.form.value)
+            this.restClient.add(this.apiURL, this.form.value).subscribe()
+            this.dialogRef.close()
+            location.reload()
+        location.reload()
         } else{
             this.error = "Inserire i campi obbligatori"
         }
-        /* this.restClient.update(this.apiURL + '/'+ this.dati.id, this.form.value).subscribe()
-        this.dialogRef.close() */
     }
 }
 
@@ -59,10 +60,11 @@ export class DialogoModificaTrattamenti{
             this.dialogRef.close();
         }
     
-        //apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php'; */
-        apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php';
+        apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
+        /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
     
         form: FormGroup = new FormGroup({
+            id: new FormControl(this.dati.id),
             nome: new FormControl(this.dati.nome),
             durata: new FormControl(this.dati.durata),
             descrizione: new FormControl(this.dati.descrizione),
@@ -70,8 +72,8 @@ export class DialogoModificaTrattamenti{
     
         
         submit() {
-            /* this.restClient.update(this.apiURL + '/'+ this.dati.id, this.form.value).subscribe()
-            this.dialogRef.close() */
-            console.log(this.form.value)
+            this.restClient.update(this.apiURL + '/'+ this.dati.id, this.form.value).subscribe()
+            this.dialogRef.close()
+            location.reload()
         }
 }

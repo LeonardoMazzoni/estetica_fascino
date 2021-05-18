@@ -23,8 +23,8 @@ export class PaginaClientiComponent {
   data:any;
   errors:any;
 
-  //apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php'; */
-  apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
+  apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php';
+  //apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
 
   constructor(public dialog: MatDialog, private restClient: RestService) {
     this.load();
@@ -40,7 +40,7 @@ export class PaginaClientiComponent {
   openDialogModifica(cliente: Cliente): void {
     const dialogRef = this.dialog.open(DialogoModificaClienti, {
       width: '300px',
-      data: {id: cliente.id,'nome': cliente.nome, 'cognome': cliente.cognome, 'email': cliente.email, 'telefono': cliente.telefono}
+      data: {'id': cliente.id,'nome': cliente.nome, 'cognome': cliente.cognome, 'email': cliente.email, 'telefono': cliente.telefono}
     });
   }
   

@@ -5,7 +5,7 @@ import { DialogoModificaTrattamenti } from './dialoghi-trattamenti';
 import { RestService } from '../../rest.service';
 
 export interface Trattamento {
-  id_trattamento: number;
+  id: number;
   nome: string;
   durata: number;
   descrizione: string;
@@ -18,8 +18,8 @@ export interface Trattamento {
 })
 export class PaginaTrattamentiComponent {
 
-  //apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php'; */
-  apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php';
+  apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
+  /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
 
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome','durata', 'descrizione','azioni'];
@@ -47,7 +47,7 @@ export class PaginaTrattamentiComponent {
   openDialogModifica(t: Trattamento): void {
     const dialogRef = this.dialog.open(DialogoModificaTrattamenti, {
       width: '300px',
-      data: {'nome': t.nome, 'durata': t.durata, 'descrizione': t.descrizione}
+      data: {'id': t.id, 'nome': t.nome, 'durata': t.durata, 'descrizione': t.descrizione}
     });
   }
 

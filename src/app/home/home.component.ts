@@ -1,4 +1,4 @@
-import { Component, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormGroup, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
 import {RestService} from '../rest.service';
@@ -10,14 +10,14 @@ import {RestService} from '../rest.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php';
+  
+  apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
+  /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
   trattamenti: any;
   data : any;
   error: any;
 
-  
-
-  constructor(private restClient: RestService, private router: Router, private renderer: Renderer2) {
+  constructor(private restClient: RestService, private router: Router) {
     this.loadTrattamenti();
   }
 
@@ -39,7 +39,7 @@ export class HomeComponent {
   loadTrattamenti(): void {
     this.restClient.get(this.apiURL).subscribe(
       data => this.trattamenti = data,
-      error => this.error = error
+      error => this.error = error.value
     )
   }
 
