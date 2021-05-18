@@ -23,8 +23,7 @@ export class PaginaClientiComponent {
   data:any;
   errors:any;
 
-  apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php';
-  //apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
+  apiURL:string = 'http://localhost:4200/API/clienti/cliente.php';
 
   constructor(public dialog: MatDialog, private restClient: RestService) {
     this.load();

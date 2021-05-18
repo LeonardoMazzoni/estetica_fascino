@@ -11,8 +11,7 @@ import {RestService} from '../rest.service';
 })
 export class HomeComponent {
   
-  apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
-  /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
+  apiURL:string = 'http://localhost:4200/API/trattamenti/trattamento.php';
   trattamenti: any;
   data : any;
   error: any;

@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import {Component} from '@angular/core';
 import {FormGroup, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
@@ -17,8 +16,7 @@ export class SignupComponent {
 
   constructor(private router: Router,  private restClient: RestService) {}
 
-  apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php';
-  //apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
+  apiURL:string = 'http://localhost:4200/API/clienti/cliente.php';
 
   form: FormGroup = new FormGroup({
     nome: new FormControl(''),
@@ -32,7 +30,6 @@ export class SignupComponent {
   submit() {
     if (this.form.valid) {
       this.restClient.add(this.apiURL, this.form.value).subscribe();
-      this.router.navigateByUrl('');
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }

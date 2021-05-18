@@ -21,8 +21,7 @@ export class DialogoInserimentoTrattamenti {
         this.dialogRef.close();
     }
 
-    apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
-    /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
+    apiURL:string = 'http://localhost:4200/API/trattamenti/trattamento.php';
 
     form: FormGroup = new FormGroup({
         nome: new FormControl(''),
@@ -60,8 +59,7 @@ export class DialogoModificaTrattamenti{
             this.dialogRef.close();
         }
     
-        apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
-        /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
+        apiURL:string = 'http://localhost:4200/API/trattamenti/trattamento.php';
     
         form: FormGroup = new FormGroup({
             id: new FormControl(this.dati.id),

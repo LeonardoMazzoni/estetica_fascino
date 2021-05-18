@@ -18,8 +18,7 @@ export interface Trattamento {
 })
 export class PaginaTrattamentiComponent {
 
-  apiURL:string = 'http://localhost:4200/Mazzoni/API/trattamenti/trattamento.php';
-  /* apiURL:string = 'http://localhost:4200/dashboard/estetica/trattamenti/trattamento.php'; */
+  apiURL:string = 'http://localhost:4200/API/trattamenti/trattamento.php';
 
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome','durata', 'descrizione','azioni'];

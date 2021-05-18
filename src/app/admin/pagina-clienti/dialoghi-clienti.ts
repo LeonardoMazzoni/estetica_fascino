@@ -38,8 +38,7 @@ export class DialogoModificaClienti {
         this.dialogRef.close();
     }
 
-    apiURL:string = 'http://localhost:4200/Mazzoni/API/clienti/cliente.php'; 
-    //apiURL:string = 'http://localhost:4200/dashboard/estetica/clienti/cliente.php';
+    apiURL:string = 'http://localhost:4200/API/clienti/cliente.php'; 
 
     form: FormGroup = new FormGroup({
         id:new FormControl(this.dati.id),
