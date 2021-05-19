@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
 import {RestService} from '../rest.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class HomeComponent {
     })
   ];
 
-  constructor(private restClient: RestService, private router: Router) {
+  constructor(private restClient: RestService, private router: Router, private fb: FormBuilder) {
     this.loadTrattamenti();
   }
 
@@ -29,8 +30,7 @@ export class HomeComponent {
     trattamento: new FormControl(''),
     data: new FormControl(''),
     ora: new FormControl('')
-  });
-
+  }); 
   submit() {
     if(this.form.valid){
       console.log(this.form.value)

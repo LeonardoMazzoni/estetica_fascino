@@ -29,7 +29,12 @@ export class SignupComponent {
   
   submit() {
     if (this.form.valid) {
-      this.restClient.add(this.apiURL, this.form.value).subscribe();
+      this.restClient.add(this.apiURL, this.form.value).subscribe(data => this.data = data)
+      setTimeout(() => {
+        if(this.data != 'Email gia esistente') {
+          this.router.navigateByUrl('');
+        } else this.error = this.data;
+      }, 210);
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }
