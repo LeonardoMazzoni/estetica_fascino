@@ -15,6 +15,11 @@ export class HomeComponent {
   trattamenti: any;
   data : any;
   error: any;
+  preferenze: any =[new FormGroup({
+      data: new FormControl(''),
+      ora: new FormControl('')
+    })
+  ];
 
   constructor(private restClient: RestService, private router: Router) {
     this.loadTrattamenti();
@@ -28,12 +33,18 @@ export class HomeComponent {
 
   submit() {
     if(this.form.valid){
-      console.log(this.form.value),
-      alert('pisellos')
+      console.log(this.form.value)
     } else {
       this.error = 'Inserire i campi Obbligatori';
     }
   } 
+
+  newPreferenza() {
+    this.preferenze.push(new FormGroup({
+      data: new FormControl(''),
+      ora: new FormControl('')
+    }))
+  }
 
   loadTrattamenti(): void {
     this.restClient.get(this.apiURL).subscribe(

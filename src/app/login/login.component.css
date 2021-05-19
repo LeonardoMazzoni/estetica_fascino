@@ -1,26 +1,23 @@
-:host {
-    display: flex;
-    justify-content: center;
-    margin: 5%;
-}
-
 .mat-form-field {
     width: 100%;
     min-width: 300px;
 }
 
-mat-card-footer,
 mat-card-title,
-mat-card-content {
+mat-card-content,
+mat-card-footer {
     display: flex;
     justify-content: center;
+}
+
+mat-card {
+    width: 300px;
+    margin: auto;
 }
 
 mat-card-title {
     padding-bottom: 7%;
 }
-
-
 
 .error {
     color: red;
