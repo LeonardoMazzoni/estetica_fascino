@@ -22,7 +22,7 @@
                 <div class="preferenza">
                     <mat-form-field appearance="outline">
                         <mat-label>Scegli la data</mat-label>
-                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="prferenza.data" required>
+                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="data" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
@@ -31,7 +31,7 @@
                 <div class="preferenza">
                     <mat-form-field appearance="outline">
                         <mat-label>Scegli l' orario</mat-label>
-                        <input matInput type="time" formControlName="preferenza.ora" min="09:00" max="19:00" step="1800" required> 
+                        <input matInput type="time" formControlName="ora" min="09:00" max="19:00" step="1800" required> 
                     </mat-form-field>
                 </div>
             </div>
