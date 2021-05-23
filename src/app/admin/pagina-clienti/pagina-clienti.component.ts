@@ -20,7 +20,7 @@ export interface Cliente {
 export class PaginaClientiComponent {
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
   displayedColumns: string[] = ['nome', 'cognome', 'telefono', 'email', 'azioni'];
-  data:any;
+  data: any;
   errors:any;
 
   apiURL:string = 'http://localhost:4200/API/clienti/cliente.php';
@@ -37,7 +37,7 @@ export class PaginaClientiComponent {
 
   //funzione che apre il dialogo per modificare un cliente
   openDialogModifica(cliente: Cliente): void {
-    const dialogRef = this.dialog.open(DialogoModificaClienti, {
+    this.dialog.open(DialogoModificaClienti, {
       width: '300px',
       data: {'id': cliente.id,'nome': cliente.nome, 'cognome': cliente.cognome, 'email': cliente.email, 'telefono': cliente.telefono}
     });

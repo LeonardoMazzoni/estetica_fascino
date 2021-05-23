@@ -1,21 +1,14 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {MatTableDataSource} from '@angular/material/table';
-import {DialogoInserimentoPrenotazioni} from './dialoghi-prenotazioni';
-import {DialogoModificaPrenotazioni} from './dialoghi-prenotazioni';
 
 export interface Prenotazione {
   id: number;
-  data: Date;
-  ora: Time;
-  trattamento: number;
-  cliente: number;
+  data: string[];
+  ora: string[];
+  trattamento: string;
+  cliente: string;
 }
-
-const ELEMENT_DATA: Prenotazione[] = [
-  
-];
 
 @Component({
   selector: 'app-pagina-prenotazioni',
@@ -25,8 +18,8 @@ const ELEMENT_DATA: Prenotazione[] = [
 export class PaginaPrenotazioniComponent implements OnInit {
 
   //variabile che contiene le colonne della tabella che vogliamo mostrare 
-  displayedColumns: string[] = ['cliente', 'trattamento', 'data_prenotazione', 'ora', 'durata', 'azioni'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['cliente', 'trattamento', 'data', 'ora', 'azioni'];
+  data: any;
 
   constructor(public dialog: MatDialog) {}
 
@@ -36,10 +29,10 @@ export class PaginaPrenotazioniComponent implements OnInit {
   //funzione per filtrare il cliente cercato
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.data.filter = filterValue.trim().toLowerCase();
   }
 
-  //funzione che apre il dialogo per inserire il nuovo cliente
+  /* //funzione che apre il dialogo per inserire il nuovo cliente
   openDialogInserimento(): void {
     const dialogRef = this.dialog.open(DialogoInserimentoPrenotazioni);
   }
@@ -47,5 +40,5 @@ export class PaginaPrenotazioniComponent implements OnInit {
   //funzione che apre il dialogo per modificare un cliente
   openDialogModifica(): void {
     const dialogRef = this.dialog.open(DialogoModificaPrenotazioni);
-  }
+  } */
 }

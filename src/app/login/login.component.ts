@@ -32,7 +32,7 @@ export class LoginComponent{
             this.router.navigateByUrl('admin');
           } else if (this.data == 'cliente') this.router.navigateByUrl('home');
           else this.error = this.data;
-        }, 9);
+        }, 50);
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }

@@ -9,12 +9,18 @@ mat-card {
     max-width: 650px;
 }
 
+h2,
 mat-card-footer,
 mat-card-title,
 mat-card-content {
     display: flex;
     justify-content: center;
     margin: auto;
+    
+}
+
+mat-card-content {
+    width: 100%;
 }
 
 mat-card-title {
@@ -33,4 +39,40 @@ mat-card-title {
 
 .preferenza {
     display: inline-block;
+    justify-content: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.prenota {
+    margin-bottom: 30px;
+}
+
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+table {
+    width: 100%;
+}
+
+.confermate {
+    width: 100%;
+    
+}
+
+.non_confermate {
+    width: 100%;
+}
+
+.tabelle {
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
 }

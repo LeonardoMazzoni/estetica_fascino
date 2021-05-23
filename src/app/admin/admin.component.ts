@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,18 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   //funzione di scroll automatico in un div a scelta
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: "smooth"});
   }
 
-  mostra(el: HTMLElement){
-    if (el.style.display === "none") {
-      el.style.display = "block";
-    } else {
-      el.style.display = "none";
-    }
+  logout() {
+    this.router.navigateByUrl('');
   }
 }

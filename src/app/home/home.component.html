@@ -1,14 +1,15 @@
 <mat-toolbar color="primary" class="sticky">
     <h1>e-Stetica</h1>
     <span class="spacer"></span>
-</mat-toolbar>
+    <button mat-raised-button type="button" (click)="logout()">Log out</button>
+</mat-toolbar> <br>
 <mat-card class="mat-elevation-z8">
     <mat-card-title>Prenota un trattamento</mat-card-title>
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="submit()">
             <p>
                 <mat-form-field>
-                    <mat-label>Scegli il trattamento</mat-label>
+                    <mat-label>Scegli un trattamento</mat-label>
                     <mat-select formControlName="trattamento" required>
                         <mat-option *ngFor="let trattamenti of trattamenti" [value]="trattamenti.id">
                             {{trattamenti.nome}}
@@ -18,8 +19,9 @@
             </p>
 
             
-            <div *ngFor="let preferenza of preferenze">
-                <div class="preferenza">
+            <div *ngFor="let preferenza of preferenze" class="preferenza">
+                <mat-divider></mat-divider> <br>
+                <div>
                     <mat-form-field appearance="outline">
                         <mat-label>Scegli la data</mat-label>
                         <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="data" required>
@@ -28,9 +30,9 @@
                     </mat-form-field>
                 </div>
 
-                <div class="preferenza">
+                <div>
                     <mat-form-field appearance="outline">
-                        <mat-label>Scegli l' orario</mat-label>
+                        <mat-label>Scegli l' ora</mat-label>
                         <input matInput type="time" formControlName="ora" min="09:00" max="19:00" step="1800" required> 
                     </mat-form-field>
                 </div>
@@ -45,11 +47,77 @@
             </p>
 
             <div class="button">
-                <button mat-button type="button" (click)="logout()">Esci</button>
                 <button mat-raised-button color="primary" type="submit">Prenota</button>
             </div>
         </form>
     </mat-card-content>
-</mat-card>
+</mat-card> <br> <br>
 
+<mat-card class="mat-elevation-z8">
+    <mat-card-title>Storico Prenotazioni</mat-card-title>
+    <mat-card-content>
+        <div class="tabelle">
+            <div class="non_confermate">
+            <h2>Prenotazioni da confermare</h2>
+                <table mat-table [dataSource]="prenotazioni_non_confermate">
+                
+                    <ng-container matColumnDef="trattamento">
+                        <th mat-header-cell *matHeaderCellDef>Trattamento</th>
+                        <td mat-cell *matCellDef="let element"> {{element.trattamento}}</td>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="data">
+                        <th mat-header-cell *matHeaderCellDef>Data e ora</th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-form-field>
+                            <mat-select>
+                                <mat-option *ngFor="let data of element.data" value="data">
+                                    {{element.data[0]}} alle {{element.ora[0]}}
+                                </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                        </td>
+                    </ng-container>
+
+            
+            
+                    <!-- Actions -->
+                    <ng-container matColumnDef="azioni">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+            
+                        <!-- bottone delete -->
+                        <button mat-icon-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+            
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="non_confermate; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: non_confermate;"></tr>
+                </table>
+            </div>
+            <br>
+            <div class="confermate">
+            <h2>Prenotazioni confermate</h2>
+                <table mat-table [dataSource]="prenotazioni_confermate">
+                
+                    <ng-container matColumnDef="trattamento">
+                        <th mat-header-cell *matHeaderCellDef>Trattamento</th>
+                        <td mat-cell *matCellDef="let element"> {{element.trattamento}}</td>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="data">
+                        <th mat-header-cell *matHeaderCellDef>Data</th>
+                        <td mat-cell *matCellDef="let element"> {{element.data}} alle {{element.ora}}</td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="confermate; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: confermate;"></tr>
+                </table>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
     

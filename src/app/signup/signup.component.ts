@@ -34,7 +34,7 @@ export class SignupComponent {
         if(this.data != 'Email gia esistente') {
           this.router.navigateByUrl('');
         } else this.error = this.data;
-      }, 210);
+      }, 250);
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }
