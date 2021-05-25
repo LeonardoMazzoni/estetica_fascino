@@ -20,8 +20,9 @@
 
             
             <div *ngFor="let preferenza of preferenze" class="preferenza">
-                <mat-divider></mat-divider> <br>
+                <mat-divider></mat-divider>
                 <div>
+                    <br>
                     <mat-form-field appearance="outline">
                         <mat-label>Scegli la data</mat-label>
                         <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="data" required>
@@ -58,7 +59,7 @@
     <mat-card-content>
         <div class="tabelle">
             <div class="non_confermate">
-            <h2>Prenotazioni da confermare</h2>
+            <h2>Prenotazioni in attesa</h2>
                 <table mat-table [dataSource]="prenotazioni_non_confermate">
                 
                     <ng-container matColumnDef="trattamento">

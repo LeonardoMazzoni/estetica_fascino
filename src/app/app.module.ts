@@ -34,6 +34,7 @@ import {SignupComponent} from './signup/signup.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -77,9 +78,14 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [RestService, { provide: MAT_DATE_LOCALE, useValue: 'IT' }],
+  providers: [
+    RestService,
+    { provide: MAT_DATE_LOCALE, useValue: 'IT' },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

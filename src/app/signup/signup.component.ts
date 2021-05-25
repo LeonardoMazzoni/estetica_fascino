@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
 import {RestService} from '../rest.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class SignupComponent {
   data : any;
   error: any;
 
-  constructor(private router: Router,  private restClient: RestService) {}
+  constructor(private router: Router,  private restClient: RestService, private snackBar: MatSnackBar) {}
 
   apiURL:string = 'http://localhost:4200/API/clienti/cliente.php';
 
@@ -30,15 +31,15 @@ export class SignupComponent {
   submit() {
     if (this.form.valid) {
       this.restClient.add(this.apiURL, this.form.value).subscribe(data => this.data = data)
-      setTimeout(() => {
-        if(this.data != 'Email gia esistente') {
-          this.router.navigateByUrl('');
-        } else this.error = this.data;
-      }, 250);
+      if(this.data != 'Email gia esistente') {
+        this.router.navigateByUrl('');
+        this.snackBar.open('Registrazione eseguita con successo!');
+      } else this.error = this.data;
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }
   }
+
   
   annulla(): void{
     this.router.navigateByUrl('');
