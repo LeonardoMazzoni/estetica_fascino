@@ -14,7 +14,7 @@ export class LoginComponent{
   constructor(private router: Router, private rest: RestService) {
   }
 
-  apiURL = 'http://localhost:4200/API/clienti/cliente.php';
+  apiURL = 'http://localhost:4200/API/clienti/login.php';
 
   data:any;
   error: any;
@@ -26,13 +26,11 @@ export class LoginComponent{
 
   submit() {
     if (this.form.valid) {
-      this.rest.get(this.apiURL+"?email="+ this.form.value.email +"&password="+ this.form.value.password).subscribe(data => this.data = data);
-      setTimeout(() => {
+      this.rest.add(this.apiURL, {email: this.form.value.email, password: this.form.value.password}).subscribe(data => this.data = data);
           if(this.data == 'admin') {
             this.router.navigateByUrl('admin');
           } else if (this.data == 'cliente') this.router.navigateByUrl('home');
           else this.error = this.data;
-        }, 50);
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }

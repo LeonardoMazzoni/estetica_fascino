@@ -30,11 +30,9 @@ export class SignupComponent {
   submit() {
     if (this.form.valid) {
       this.restClient.add(this.apiURL, this.form.value).subscribe(data => this.data = data)
-      setTimeout(() => {
-        if(this.data != 'Email gia esistente') {
-          this.router.navigateByUrl('');
-        } else this.error = this.data;
-      }, 250);
+      if(this.data != 'Email gia esistente') {
+        this.router.navigateByUrl('');
+      } else this.error = this.data;
     } else {
       this.error = 'Inserisci i campi obbligatori'
     }
